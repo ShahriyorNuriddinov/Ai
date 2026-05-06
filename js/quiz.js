@@ -169,29 +169,47 @@ function prevQuestion() {
 }
 
 async function submitQuiz() {
-    // Prepare data for Telegram
+    // Prepare data for Telegram with full questions
     const quizData = {
-        q1: answers[1] || 'N/A',
-        q2: answers[2] || 'N/A',
-        q3: answers[3] || 'N/A',
-        q4: answers[4] || 'N/A',
-        q5: answers[5] || 'N/A',
+        q1: {
+            question: "To confirm, you are filling this out because you want to be part of an exclusive community who shares the most lucrative opportunities within Decentralized Finance?",
+            answer: answers[1] || 'N/A'
+        },
+        q2: {
+            question: "How much do you currently have invested in crypto?",
+            answer: answers[2] || 'N/A'
+        },
+        q3: {
+            question: "What is your primary goal with crypto investing?",
+            answer: answers[3] || 'N/A'
+        },
+        q4: {
+            question: "How would you describe your experience with DeFi (Decentralized Finance)?",
+            answer: answers[4] || 'N/A'
+        },
+        q5: {
+            question: "Are you ready to commit time and resources to building real wealth through crypto?",
+            answer: answers[5] || 'N/A'
+        },
         firstName: answers[6] || 'N/A',
         email: answers[7] || 'N/A',
         phone: answers[8] || 'N/A'
     };
 
-    // Format message for Telegram
+    // Save to localStorage for booking page
+    localStorage.setItem('quizAnswers', JSON.stringify(quizData));
+
+    // Format message for Telegram with full questions
     const message = `📝 New Application Form Submission!\n\n` +
-        ` Q1: Serious investor?\n✅ ${quizData.q1}\n\n` +
-        ` Q2: Current crypto investment?\n✅ ${quizData.q2}\n\n` +
-        ` Q3: Primary goal?\n✅ ${quizData.q3}\n\n` +
-        ` Q4: DeFi experience?\n✅ ${quizData.q4}\n\n` +
-        ` Q5: Ready to commit?\n✅ ${quizData.q5}\n\n` +
-        ` Name: ${quizData.firstName}\n` +
-        ` Email: ${quizData.email}\n` +
-        ` Phone: ${quizData.phone}\n\n` +
-        ` Submitted: ${new Date().toLocaleString()}`;
+        `❓ ${quizData.q1.question}\n✅ ${quizData.q1.answer}\n\n` +
+        `❓ ${quizData.q2.question}\n✅ ${quizData.q2.answer}\n\n` +
+        `❓ ${quizData.q3.question}\n✅ ${quizData.q3.answer}\n\n` +
+        `❓ ${quizData.q4.question}\n✅ ${quizData.q4.answer}\n\n` +
+        `❓ ${quizData.q5.question}\n✅ ${quizData.q5.answer}\n\n` +
+        `👤 Name: ${quizData.firstName}\n` +
+        `📧 Email: ${quizData.email}\n` +
+        `📱 Phone: ${quizData.phone}\n\n` +
+        `⏰ Submitted: ${new Date().toLocaleString()}`;
 
     // Send to Telegram
     try {

@@ -167,13 +167,28 @@ async function submitBooking() {
 }
 
 async function sendToTelegram(data) {
+    // Get quiz answers from localStorage
+    const quizAnswers = localStorage.getItem('quizAnswers');
+    let quizSection = '';
+
+    if (quizAnswers) {
+        const quiz = JSON.parse(quizAnswers);
+        quizSection = `\n\n📋 APPLICATION ANSWERS:\n\n` +
+            `❓ ${quiz.q1.question}\n✅ ${quiz.q1.answer}\n\n` +
+            `❓ ${quiz.q2.question}\n✅ ${quiz.q2.answer}\n\n` +
+            `❓ ${quiz.q3.question}\n✅ ${quiz.q3.answer}\n\n` +
+            `❓ ${quiz.q4.question}\n✅ ${quiz.q4.answer}\n\n` +
+            `❓ ${quiz.q5.question}\n✅ ${quiz.q5.answer}\n`;
+    }
+
     const message = `🔔 New Booking!\n\n` +
         `👤 Name: ${data.name}\n` +
         `📧 Email: ${data.email}\n` +
         `📱 Phone: ${data.phone}\n` +
         `📅 Date: ${data.date}\n` +
         `⏰ Time: ${data.time}\n` +
-        `🌍 Timezone: ${data.timezone}`;
+        `🌍 Timezone: ${data.timezone}` +
+        quizSection;
 
     // Send via backend API (keeps bot token secure)
     await fetch('/api/send-telegram', {
