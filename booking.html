@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book a Meeting - Decentralized Masters</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700;800;900&family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="https://cdn.prod.website-files.com/64903c236b31c507431e57fa/64903c236b31c507431e589c_32x32.png">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="page-wrapper">
+        <section class="booking-section">
+            <div class="container">
+                <!-- Logo -->
+                <div style="margin-bottom: 15px;">
+                    <img src="https://cdn.prod.website-files.com/64903c236b31c507431e57fa/67f6268101eba104994c5127_6534e941d827f094326dc841_logo%20white%201.png" alt="Decentralized Masters" style="height: 35px; filter: brightness(0);">
+                </div>
+
+                <h1 class="booking-heading">Book a meeting with a <span class="blue-highlight">Decentralized Masters</span> member</h1>
+
+                <!-- Trust Indicators -->
+                <div class="trust-wrapper" style="margin-bottom: 30px;">
+                    <div class="tp-wrapper members">
+                        <img src="https://cdn.prod.website-files.com/64903c236b31c507431e57fa/66f287e4489430b5d4d3de76_Member-Images.webp" alt="Members" class="member-images">
+                        <div class="member-text">
+                            <span class="tp-bold">3000+ DeFi Members</span><br>
+                            Successfully Served
+                        </div>
+                    </div>
+                    <div class="tp-wrapper trustpilot">
+                        <span class="tp-bold">Excellent 4.9</span> out of 5
+                        <img src="https://cdn.prod.website-files.com/64903c236b31c507431e57fa/6842dbd7d5eddf1443cbb06e_Trustpilot%20Logo.png" alt="Trustpilot" class="tp-logo">
+                    </div>
+                </div>
+
+                <!-- Booking Container -->
+                <div class="booking-container" id="bookingContainer">
+                    <!-- Calendar Side -->
+                    <div class="booking-calendar">
+                        <div class="booking-calendar-logo">DM</div>
+                        <div class="booking-calendar-title">Meet with Decentralized Masters</div>
+
+                        <div class="calendar-nav">
+                            <button class="calendar-nav-btn" onclick="changeMonth(-1)">‹</button>
+                            <span class="calendar-month" id="calendarMonth"></span>
+                            <button class="calendar-nav-btn" onclick="changeMonth(1)">›</button>
+                        </div>
+
+                        <div class="calendar-grid" id="calendarGrid"></div>
+                    </div>
+
+                    <!-- Time Slots Side -->
+                    <div class="booking-times">
+                        <div class="booking-times-header">Meeting location</div>
+                        <div class="booking-times-location">📍 Interview Call</div>
+
+                        <div class="booking-times-header">Meeting duration</div>
+                        <div class="booking-times-duration">15 mins</div>
+
+                        <div class="booking-date-label">What time works best?</div>
+                        <div class="booking-date-showing" id="dateShowing">Showing times for <strong id="selectedDateText"></strong></div>
+
+                        <select class="timezone-select" id="timezoneSelect">
+                            <option value="UTC+05:00">UTC +05:00 Uzbekistan Time</option>
+                            <option value="UTC+07:00">UTC +07:00 Indochina Time</option>
+                            <option value="UTC-05:00">UTC -05:00 Eastern Time</option>
+                            <option value="UTC-08:00">UTC -08:00 Pacific Time</option>
+                            <option value="UTC+00:00">UTC +00:00 GMT</option>
+                            <option value="UTC+03:00">UTC +03:00 Moscow Time</option>
+                        </select>
+
+                        <div class="time-slots" id="timeSlots"></div>
+
+                        <!-- Booking Form (shows after time selection) -->
+                        <div class="booking-form" id="bookingForm">
+                            <input type="text" class="booking-form-input" id="bookingName" placeholder="Your full name *" required>
+                            <input type="email" class="booking-form-input" id="bookingEmail" placeholder="Your email *" required>
+                            <input type="tel" class="booking-form-input" id="bookingPhone" placeholder="Your phone number *" required>
+                            <button class="booking-submit-btn" onclick="submitBooking()">Confirm Booking</button>
+                        </div>
+                    </div>
+                </div>
+
+                <p style="margin-top: 20px; font-size: 14px; color: #666;">
+                    Need more availability? <a href="#" style="color: #2563eb; text-decoration: underline;">Click Here</a>
+                </p>
+            </div>
+        </section>
+    </div>
+
+    <script src="js/tg-config.js"></script>
+    <script src="js/booking.js"></script>
+</body>
+</html>

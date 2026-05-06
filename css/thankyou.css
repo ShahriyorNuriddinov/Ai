@@ -1,0 +1,677 @@
+/* Thankyou Page Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #f5f7fa;
+    color: #1a1a2e;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Top Section */
+.page-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 20px 60px;
+    text-align: center;
+}
+
+.logo-wrap {
+    margin-bottom: 30px;
+}
+
+.logo-wrap img {
+    height: 35px;
+}
+
+.main-heading {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 36px;
+    font-weight: 800;
+    margin-bottom: 10px;
+    line-height: 1.2;
+}
+
+.blue { color: #2563eb; }
+.red { color: #e53e3e; }
+.underline { text-decoration: underline; }
+
+.pending-text {
+    color: #e53e3e;
+    font-style: italic;
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+.steps-intro {
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: #444;
+}
+
+.scroll-arrow {
+    font-size: 28px;
+    margin-bottom: 30px;
+    color: #666;
+}
+
+.step-label {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.step2-subtitle {
+    font-size: 14px;
+    color: #666;
+    font-style: italic;
+    margin-bottom: 15px;
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    margin-bottom: 30px;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #000;
+}
+
+.video-container.blue-border {
+    border: 3px solid #2563eb;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.video-container:not(:has(#vidalytics_embed_zwln7IrHg7v20Alh)) {
+    padding-top: 56.25%;
+}
+
+.dotted-line {
+    color: #ccc;
+    font-size: 14px;
+    letter-spacing: 2px;
+    margin: 30px 0;
+}
+
+/* Note From Tan */
+.note-section {
+    background: #fff;
+    border-radius: 12px;
+    padding: 30px;
+    text-align: left;
+    margin-top: 30px;
+    position: relative;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+
+.sticky-tape {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+}
+
+.note-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.note-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.note-title {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.note-section p {
+    margin-bottom: 12px;
+    font-size: 15px;
+    color: #333;
+}
+
+.signature {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.signature-img {
+    height: 40px;
+}
+
+.signature-name {
+    font-weight: 600;
+    font-size: 16px;
+}
+
+/* 300+ Video Testimonials */
+.testimonials-video-section {
+    padding: 60px 0;
+    background: #fff;
+}
+
+.section-heading {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 32px;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.section-sub {
+    text-align: center;
+    font-size: 16px;
+    color: #444;
+    margin-bottom: 5px;
+}
+
+.section-note {
+    text-align: center;
+    font-size: 14px;
+    color: #888;
+    font-style: italic;
+    margin-bottom: 40px;
+}
+
+.video-testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+.video-testimonials-grid.cols-2 {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.video-testimonial-item {
+    text-align: center;
+}
+
+.testimonial-name {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.testimonial-quote {
+    color: #2563eb;
+    font-size: 15px;
+    font-style: italic;
+    margin-bottom: 12px;
+}
+
+.yt-embed {
+    position: relative;
+    padding-top: 56.25%;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #000;
+}
+
+.yt-embed iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Trustpilot Dark Section */
+.trustpilot-dark-section {
+    background: #0a1628;
+    padding: 60px 0;
+}
+
+.tp-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.tp-logo-large {
+    height: 40px;
+}
+
+.tp-rating {
+    color: #2563eb;
+    font-size: 22px;
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+.dark-reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.dark-review-card {
+    background: #111d33;
+    border: 1px solid #1e3a5f;
+    border-radius: 12px;
+    padding: 25px;
+}
+
+.dark-review-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.dark-review-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.avatar-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 14px;
+    color: #fff;
+    flex-shrink: 0;
+}
+
+.avatar-circle.lt {
+    background: #1a5276;
+}
+
+.avatar-circle.green {
+    background: #27ae60;
+}
+
+.dark-review-name {
+    color: #4fc3f7;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.dark-review-stars img {
+    height: 22px;
+    margin-bottom: 8px;
+}
+
+.dark-review-date {
+    color: #8899aa;
+    font-size: 13px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.dark-review-title {
+    color: #fff;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.dark-review-text {
+    color: #b0bec5;
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 12px;
+}
+
+.dark-review-exp {
+    color: #4fc3f7;
+    font-size: 13px;
+    text-decoration: underline;
+}
+
+/* FAQ Section */
+.faq-section {
+    padding: 60px 0;
+    background: #fff;
+}
+
+.faq-heading {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 32px;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.faq-list {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    background: #f0f2f5;
+    border-radius: 10px;
+    margin-bottom: 12px;
+    overflow: hidden;
+}
+
+.faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 25px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.faq-icon {
+    font-size: 20px;
+    transition: transform 0.3s;
+}
+
+.faq-item.active .faq-icon {
+    transform: rotate(180deg);
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+}
+
+.faq-item.active .faq-answer {
+    max-height: 500px;
+    padding: 0 25px 20px;
+}
+
+.faq-answer p {
+    font-size: 15px;
+    color: #555;
+    line-height: 1.7;
+}
+
+/* Press Section */
+.press-section {
+    background: #fef5e7;
+    padding: 60px 0;
+}
+
+.press-heading {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 32px;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.press-sub {
+    text-align: center;
+    font-size: 16px;
+    color: #444;
+    margin-bottom: 5px;
+}
+
+.press-note {
+    text-align: center;
+    font-size: 14px;
+    color: #888;
+    margin-bottom: 40px;
+}
+
+.press-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+}
+
+.press-card {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    text-align: center;
+    padding-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.press-img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.press-caption {
+    font-size: 14px;
+    padding: 15px 10px 12px;
+    color: #333;
+}
+
+.press-btn {
+    display: inline-block;
+    border: 2px solid #2563eb;
+    color: #2563eb;
+    padding: 8px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.press-btn:hover {
+    background: #2563eb;
+    color: #fff;
+}
+
+/* Analysts Section */
+.analysts-section {
+    background: #1a1a2e;
+    padding: 60px 0;
+}
+
+.analysts-heading {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    text-align: center;
+    color: #fff;
+    margin-bottom: 40px;
+}
+
+.analysts-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.analyst-card {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    padding: 15px;
+    text-align: center;
+}
+
+.analyst-card .yt-embed {
+    margin-bottom: 15px;
+}
+
+.analyst-name {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 3px;
+}
+
+.analyst-role {
+    font-size: 13px;
+    color: #666;
+}
+
+/* 400+ Verified Reviews */
+.verified-reviews-section {
+    padding: 60px 0;
+    background: #fff;
+}
+
+.tp-badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 8px;
+    font-size: 16px;
+}
+
+.scroll-note {
+    text-align: center;
+    font-size: 14px;
+    color: #888;
+    margin-bottom: 30px;
+}
+
+.verified-reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    overflow-x: auto;
+}
+
+.verified-review-card {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 25px;
+}
+
+.vr-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.vr-name {
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.vr-date {
+    margin-left: auto;
+    font-size: 13px;
+    color: #888;
+}
+
+.vr-stars img {
+    height: 22px;
+    margin-bottom: 10px;
+}
+
+.vr-title {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.vr-text {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 12px;
+}
+
+.vr-exp {
+    font-size: 13px;
+    color: #666;
+}
+
+/* More Testimonials */
+.more-testimonials-section {
+    padding: 40px 0 60px;
+    background: #f5f7fa;
+}
+
+/* Footer */
+.footer-disclaimer {
+    background: #f9f9f9;
+    padding: 50px 20px;
+    border-top: 1px solid #eee;
+}
+
+.disclaimer-text {
+    font-size: 13px;
+    color: #666;
+    line-height: 1.7;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.footer-logo {
+    height: 30px;
+    margin-bottom: 15px;
+}
+
+.footer-links {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.footer-links a {
+    color: #2563eb;
+    text-decoration: underline;
+    font-size: 14px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .main-heading { font-size: 26px; }
+    .section-heading { font-size: 26px; }
+    .faq-heading { font-size: 26px; }
+    .press-heading { font-size: 26px; }
+    .analysts-heading { font-size: 22px; }
+    
+    .video-testimonials-grid { grid-template-columns: 1fr; }
+    .dark-reviews-grid { grid-template-columns: 1fr; }
+    .press-grid { grid-template-columns: repeat(2, 1fr); }
+    .analysts-grid { grid-template-columns: 1fr; }
+    .verified-reviews-grid { grid-template-columns: 1fr; }
+    
+    .tp-header {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-wrapper { padding: 20px 15px 40px; }
+    .main-heading { font-size: 22px; }
+    .press-grid { grid-template-columns: 1fr; }
+    .step-label { font-size: 15px; }
+}
