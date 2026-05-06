@@ -102,6 +102,27 @@
             border-radius: 12px;
         }
 
+        .get-started-btn {
+            display: inline-block;
+            background-color: #2563eb;
+            color: #ffffff;
+            font-size: 18px;
+            font-weight: 600;
+            padding: 16px 50px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4);
+            margin-top: 20px;
+        }
+
+        .get-started-btn:hover {
+            background-color: #1d4ed8;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(37, 99, 235, 0.5);
+        }
+
         @media (max-width: 768px) {
             .heading-h1 {
                 font-size: 24px;
@@ -143,14 +164,20 @@
             </div>
 
             <!-- TypeForm Embed -->
-            <div class="typeform-embed-container">
+            <div class="typeform-embed-container" id="typeformContainer" style="display: none;">
                 <div id="typeform-wrapper" style="width:100%;height:100%;"></div>
             </div>
+
+            <!-- Custom Get Started Button -->
+            <button class="get-started-btn" id="getStartedBtn" onclick="showTypeform()">
+                Get Started >
+            </button>
         </section>
     </div>
 
     <script src="https://embed.typeform.com/next/embed.js"></script>
     <script>
+        // Initialize Typeform
         window.tf.createWidget('nbLowr3v', {
             container: document.getElementById('typeform-wrapper'),
             opacity: 100,
@@ -160,6 +187,15 @@
                 window.location.href = 'booking.html';
             }
         });
+
+        // Show Typeform when button clicked
+        function showTypeform() {
+            document.getElementById('typeformContainer').style.display = 'block';
+            document.getElementById('getStartedBtn').style.display = 'none';
+            document.querySelector('.main-logo').style.display = 'none';
+            document.querySelector('.heading-h1').style.display = 'none';
+            document.querySelectorAll('.tp-wrapper').forEach(el => el.style.display = 'none');
+        }
     </script>
 </body>
 
