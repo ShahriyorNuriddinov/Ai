@@ -1,10 +1,11 @@
 services:
   - type: web
     name: dec-masters-site
-    env: static
-    buildCommand: echo "No build required"
-    staticPublishPath: .
-    routes:
-      - type: rewrite
-        source: /*
-        destination: /index.html
+    env: node
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: TG_BOT_TOKEN
+        sync: false
+      - key: TG_CHAT_ID
+        sync: false
