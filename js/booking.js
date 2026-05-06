@@ -7,16 +7,23 @@ const months = ['January', 'February', 'March', 'April', 'May', 'June',
     'July', 'August', 'September', 'October', 'November', 'December'];
 const days = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
 
-// Available time slots
+// Available time slots (9am to 11pm, 15-minute intervals)
 const timeSlots = [
     '9:00 am', '9:15 am', '9:30 am', '9:45 am',
     '10:00 am', '10:15 am', '10:30 am', '10:45 am',
-    '11:00 am', '11:15 am', '11:30 am',
+    '11:00 am', '11:15 am', '11:30 am', '11:45 am',
+    '12:00 pm', '12:15 pm', '12:30 pm', '12:45 pm',
+    '1:00 pm', '1:15 pm', '1:30 pm', '1:45 pm',
     '2:00 pm', '2:15 pm', '2:30 pm', '2:45 pm',
-    '3:00 pm', '3:15 pm', '3:30 pm',
-    '9:00 pm', '9:15 pm', '9:30 pm',
+    '3:00 pm', '3:15 pm', '3:30 pm', '3:45 pm',
+    '4:00 pm', '4:15 pm', '4:30 pm', '4:45 pm',
+    '5:00 pm', '5:15 pm', '5:30 pm', '5:45 pm',
+    '6:00 pm', '6:15 pm', '6:30 pm', '6:45 pm',
+    '7:00 pm', '7:15 pm', '7:30 pm', '7:45 pm',
+    '8:00 pm', '8:15 pm', '8:30 pm', '8:45 pm',
+    '9:00 pm', '9:15 pm', '9:30 pm', '9:45 pm',
     '10:00 pm', '10:15 pm', '10:30 pm', '10:45 pm',
-    '11:00 pm', '11:15 pm'
+    '11:00 pm'
 ];
 
 function renderCalendar() {
@@ -83,8 +90,28 @@ function renderTimeSlots() {
         return;
     }
 
-    // Randomize available slots slightly for realism
-    const availableSlots = timeSlots.filter(() => Math.random() > 0.3);
+    // Seeded random based on date to make 20% slots unavailable consistently per day
+    const seed = selectedDate.getFullYear() * 10000 + selectedDate.getMonth() * 100 + selectedDate.getDate();
+
+    function seededRandom(s) {
+        const x = Math.sin(s++) * 10000;
+        return x - Math.floor(x);
+    }
+
+    // Filter out 20% of slots (make them unavailable)
+    const totalSlots = timeSlots.length;
+    const unavailableCount = Math.floor(totalSlots * 0.2); // 20% unavailable
+    const unavailableIndices = new Set();
+
+    let currentSeed = seed;
+    while (unavailableIndices.size < unavailableCount) {
+        const randomIndex = Math.floor(seededRandom(currentSeed) * totalSlots);
+        unavailableIndices.add(randomIndex);
+        currentSeed++;
+    }
+
+    // Filter available slots (80% available)
+    const availableSlots = timeSlots.filter((slot, index) => !unavailableIndices.has(index));
 
     let html = '';
     availableSlots.forEach(time => {
@@ -108,9 +135,13 @@ function selectTime(time, el) {
 async function submitBooking() {
     const name = document.getElementById('bookingName').value.trim();
     const email = document.getElementById('bookingEmail').value.trim();
-    const phone = document.getElementById('bookingPhone').value.trim();
+    const phoneNumber = document.getElementById('bookingPhone').value.trim();
+    const countryCode = document.getElementById('countryCodeHidden').value;
 
-    if (!name || !email || !phone) {
+    // Combine country code with phone number
+    const phone = countryCode + ' ' + phoneNumber;
+
+    if (!name || !email || !phoneNumber) {
         alert('Please fill in all fields');
         return;
     }

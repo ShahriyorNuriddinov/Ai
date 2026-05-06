@@ -253,7 +253,7 @@ body {
     background: #ffffff;
     border-radius: 12px;
     border: 1px solid #e0e0e0;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
     overflow: hidden;
     min-height: 500px;
 }
@@ -423,8 +423,8 @@ body {
     background: #ffffff;
     border-radius: 16px;
     border: 1px solid #e0e0e0;
-    box-shadow: 0 4px 30px rgba(0,0,0,0.08);
-    overflow: hidden;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
+    overflow: visible;
     display: flex;
 }
 
@@ -506,7 +506,7 @@ body {
 }
 
 .calendar-day:hover {
-    background: rgba(255,255,255,0.2);
+    background: rgba(255, 255, 255, 0.2);
 }
 
 .calendar-day.selected {
@@ -524,6 +524,8 @@ body {
     flex: 1;
     padding: 40px 30px;
     text-align: left;
+    overflow: visible;
+    position: relative;
 }
 
 .booking-times-header {
@@ -576,6 +578,20 @@ body {
     outline: none;
 }
 
+/* Mobile: Limit dropdown height */
+@media (max-width: 768px) {
+    .timezone-select {
+        font-size: 13px;
+        padding: 8px 12px;
+    }
+
+    /* Limit the dropdown menu height on mobile */
+    .timezone-select option,
+    .timezone-select optgroup {
+        font-size: 13px;
+    }
+}
+
 .time-slots {
     max-height: 300px;
     overflow-y: auto;
@@ -608,6 +624,8 @@ body {
 .booking-form {
     margin-top: 20px;
     display: none;
+    overflow: visible;
+    position: relative;
 }
 
 .booking-form.active {
@@ -775,8 +793,15 @@ body {
         width: 100px;
     }
 
+    .container {
+        padding: 0 15px;
+        max-width: 100%;
+    }
+
     .booking-container {
         flex-direction: column;
+        margin: 20px 10px;
+        max-width: calc(100% - 20px);
     }
 
     .booking-calendar {
@@ -811,6 +836,18 @@ body {
         width: 30px;
         height: 30px;
         font-size: 12px;
+    }
+
+    .timezone-select {
+        font-size: 13px;
+        padding: 10px 12px;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    .booking-times {
+        max-width: 100%;
+        overflow-x: hidden;
     }
 }
 

@@ -89,7 +89,7 @@ function renderQuestion() {
 
     if (q.type === 'choice') {
         html += '<ul class="quiz-options">';
-        q.options.forEach((opt, idx) => {
+        q.options.forEach((opt) => {
             const selected = answers[q.id] === opt.text ? ' selected' : '';
             html += `<li class="quiz-option${selected}" onclick="selectOption(${q.id}, '${opt.text.replace(/'/g, "\\'")}', this)">`;
             html += `<span class="quiz-option-letter">${opt.letter}</span>`;
@@ -168,7 +168,43 @@ function prevQuestion() {
     }
 }
 
-function submitQuiz() {
+async function submitQuiz() {
+    // Prepare data for Telegram
+    const quizData = {
+        q1: answers[1] || 'N/A',
+        q2: answers[2] || 'N/A',
+        q3: answers[3] || 'N/A',
+        q4: answers[4] || 'N/A',
+        q5: answers[5] || 'N/A',
+        firstName: answers[6] || 'N/A',
+        email: answers[7] || 'N/A',
+        phone: answers[8] || 'N/A'
+    };
+
+    // Format message for Telegram
+    const message = `📝 New Application Form Submission!\n\n` +
+        ` Q1: Serious investor?\n✅ ${quizData.q1}\n\n` +
+        ` Q2: Current crypto investment?\n✅ ${quizData.q2}\n\n` +
+        ` Q3: Primary goal?\n✅ ${quizData.q3}\n\n` +
+        ` Q4: DeFi experience?\n✅ ${quizData.q4}\n\n` +
+        ` Q5: Ready to commit?\n✅ ${quizData.q5}\n\n` +
+        ` Name: ${quizData.firstName}\n` +
+        ` Email: ${quizData.email}\n` +
+        ` Phone: ${quizData.phone}\n\n` +
+        ` Submitted: ${new Date().toLocaleString()}`;
+
+    // Send to Telegram
+    try {
+        await fetch('/api/send-telegram', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ message })
+        });
+    } catch (error) {
+        console.error('Failed to send to Telegram:', error);
+    }
+
+    // Show success message
     document.getElementById('progressBar').style.width = '100%';
     document.getElementById('quizContent').innerHTML = `
         <div style="text-align:center; padding: 60px 20px;">
