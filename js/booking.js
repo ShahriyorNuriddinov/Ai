@@ -191,11 +191,14 @@ async function sendToTelegram(data) {
         quizSection;
 
     // Send via backend API (keeps bot token secure)
-    await fetch('/api/send-telegram', {
+    console.log('Sending booking data to Telegram...');
+    const response = await fetch('/api/send-telegram', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ message })
     });
+    const result = await response.json();
+    console.log('Telegram response:', result);
 }
 
 // Initialize

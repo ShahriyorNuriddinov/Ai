@@ -19,8 +19,10 @@ const TG_CHAT_ID = process.env.TG_CHAT_ID;
 app.post('/api/send-telegram', async (req, res) => {
     try {
         const { message } = req.body;
+        console.log('Received Telegram request:', message ? 'Message present' : 'No message');
 
         if (!TG_BOT_TOKEN || !TG_CHAT_ID) {
+            console.error('Telegram config missing:', { hasToken: !!TG_BOT_TOKEN, hasChatId: !!TG_CHAT_ID });
             return res.status(500).json({
                 success: false,
                 error: 'Telegram configuration missing'
@@ -28,6 +30,7 @@ app.post('/api/send-telegram', async (req, res) => {
         }
 
         const telegramUrl = `https://api.telegram.org/bot${TG_BOT_TOKEN}/sendMessage`;
+        console.log('Sending to Telegram API...');
 
         const response = await fetch(telegramUrl, {
             method: 'POST',
@@ -42,10 +45,12 @@ app.post('/api/send-telegram', async (req, res) => {
         });
 
         const data = await response.json();
+        console.log('Telegram API response:', data);
 
         if (data.ok) {
             res.json({ success: true, message: 'Notification sent successfully' });
         } else {
+            console.error('Telegram API error:', data.description);
             res.status(400).json({ success: false, error: data.description });
         }
     } catch (error) {

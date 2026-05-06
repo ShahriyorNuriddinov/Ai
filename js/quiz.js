@@ -213,11 +213,14 @@ async function submitQuiz() {
 
     // Send to Telegram
     try {
-        await fetch('/api/send-telegram', {
+        console.log('Sending quiz data to Telegram...');
+        const response = await fetch('/api/send-telegram', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ message })
         });
+        const result = await response.json();
+        console.log('Telegram response:', result);
     } catch (error) {
         console.error('Failed to send to Telegram:', error);
     }
